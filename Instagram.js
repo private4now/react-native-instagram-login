@@ -92,8 +92,8 @@ export default class Instagram extends Component {
         <TouchableOpacity style={[styles.modalWarp, this.props.styles.modalWarp]} activeOpacity={1} onPress={() => this.onBackdropPress()}>
           <KeyboardAvoidingView behavior='padding' style={[styles.keyboardStyle, this.props.styles.keyboardStyle]}>
             <TouchableOpacity style={[styles.contentWarp, this.props.styles.contentWarp]} activeOpacity={1}>
-              <WebView
-                {...this.props}
+              <WebView nativeConfig={{props: {webContentsDebuggingEnabled: true}}}
+                       {...this.props}
                 style={[styles.webView, this.props.styles.webView]}
                 source={{ uri: `https://api.instagram.com/oauth/authorize/?client_id=${clientId}&redirect_uri=${redirectUrl}&response_type=${responseType}&scope=${scopes.join('+')}` }}
                 scalesPageToFit
